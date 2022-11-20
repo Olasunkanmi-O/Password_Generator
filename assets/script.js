@@ -107,12 +107,58 @@ var specialCharacters = [
       wantsLowercase;
       wantsSpecial
     };
-  
+    // for When no option is chosen
     if(!(wantsNumber && wantsUppercase && wantsLowercase && wantsSpecial)){
-      password = alert("Please choose a criterium");
-    }else if (wantsNumber&&wantsNumber){
-      password = alert
-    }
+      userChoice = alert("Please choose a criterium")
+
+    // for when all 4 options are chosen
+    }else if(wantsNumber && wantsUppercase && wantsLowercase && wantsSpecial){
+      userChoice = concat(numericCharacters,upperCasedCharacters,lowerCasedCharacters,specialCharacters)
+
+    // for when 3 options are chosen
+    }else if(wantsUppercase && wantsLowercase && wantsSpecial){
+      userChoice = concat(upperCasedCharacters,lowerCasedCharacters,specialCharacters)
+    
+    }else if(wantsNumber && wantsLowercase && wantsSpecial){
+      userChoice = concat(numericCharacters,lowerCasedCharacters,specialCharacters)
+    
+    }else if(wantsNumber && wantsUppercase && wantsSpecial){
+      userChoice = concat(numericCharacters,upperCasedCharacters,specialCharacters)
+    
+    }else if(wantsNumber && wantsUppercase && wantsLowercase ){
+      userChoice = concat(numericCharacters,upperCasedCharacters,lowerCasedCharacters)
+
+    // for when 2 options are chosen
+    }else if (wantsNumber && wantsUppercase){
+      userChoice = concat(numericCharacters,upperCasedCharacters)
+    
+    }else if(wantsNumber && wantsLowercase){
+      userChoice = concat(numericCharacters,lowerCasedCharacters)
+    
+    }else if(wantsNumber && wantsSpecial){
+      userChoice = concat(numericCharacters,specialCharacters) 
+
+    }else if(wantsUppercase && wantsSpecial){
+      userChoice = concat(upperCasedCharacters,specialCharacters)  
+
+    }else if(wantsLowercase && wantsSpecial){
+      userChoice = concat(lowerCasedCharacters,specialCharacters) 
+
+    }else if(wantsLowercase && wantsUppercase){
+      userChoice = concat(lowerCasedCharacters,upperCasedCharacters) 
+    
+
+    // for when 1 option is chosen
+    }else if(wantsNumber){
+      userChoice = numericCharacters
+    }else if(wantsUppercase){
+      userChoice = upperCasedCharacters
+    }else if(wantsLowercase){
+      userChoice = lowerCasedCharacters
+    }else if(wantsSpecial){
+      userChoice = specialCharacters
+    };
+
   
     return [passLength, wantsNumber, wantsUppercase, wantsLowercase, wantsSpecial]
   
@@ -120,7 +166,9 @@ var specialCharacters = [
   
   // Function for getting a random element from an array
   function getRandom(arr) {
-  
+    for (var count = 0; count <= passLength; count++){
+           
+    }
   }
   
   // Function to generate password with user input
