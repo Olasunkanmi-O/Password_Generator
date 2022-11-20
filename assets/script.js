@@ -167,12 +167,14 @@ var specialCharacters = [
   // Function for getting a random element from an array
   function getRandom(arr) {
     for (var count = 0; count <= passLength; count++){
-           
-    }
+     var result = userChoice[Math.floor(Math.random()*userChoice.length)]
   }
-  
+    return result
+  }
   // Function to generate password with user input
   function generatePassword() {
+  
+
    
   }
   
