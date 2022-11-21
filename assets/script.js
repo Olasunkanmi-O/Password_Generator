@@ -87,10 +87,10 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+var passLength
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var passLength =parseInt(prompt("Enter your password length between 10 and 64"));
+   passLength = parseInt(prompt("Enter your password length between 10 and 64"));
   if (passLength < 10 || passLength > 64) {
     alert('Password must be between 10 and 64 characters');
     return null;
@@ -111,6 +111,7 @@ function getPasswordOptions() {
     alert('Please choose an option');
     return null;
   }
+  var userChoice = []
   var optionsObj = {
     length: passLength,
     number: wantsNumber,
@@ -118,18 +119,35 @@ function getPasswordOptions() {
     lower: wantsLowercase,
     special: wantsSpecial,
   };
-  return optionsObj;
 
+  if (optionsObj.number) {
+    userChoice.push(numericCharacters);
+  }
+  if(optionsObj.upper) {
+    userChoice.push(upperCasedCharacters)
+  }
+  if(optionsObj.lower) {
+    userChoice.push(lowerCasedCharacters)
+  }
+  if(optionsObj.special) {
+    userChoice.push(specialCharacters)
+  }
 }
-getPasswordOptions()
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+for (var i = 0; i <= passLength; i++ ){
+  var userPick = userChoice[Math.floor(Math.random()*userChoice.length)];
+  password.push(userPick)
+  
+}
+  
 
 }
 // Function to generate password with user input
 function generatePassword() {
+
 
 
 }
