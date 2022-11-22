@@ -95,11 +95,11 @@ function getPasswordOptions() {
     alert('Password must be between 10 and 64 characters');
     return null;
   }
+
   var wantsNumber = confirm("Do you want numbers in your password?")
   var wantsUppercase = confirm("Do you want capital letters in your password?")
   var wantsLowercase = confirm("Do you want small letters in your password?")
   var wantsSpecial = confirm("Do you want special characters in your password?")
-
 
 
   if (
@@ -111,7 +111,7 @@ function getPasswordOptions() {
     alert('Please choose an option');
     return null;
   }
-  var userChoice = []
+  var userChoice = [];
   var optionsObj = {
     length: passLength,
     number: wantsNumber,
@@ -132,25 +132,33 @@ function getPasswordOptions() {
   if(optionsObj.special) {
     userChoice.push(specialCharacters)
   }
+  
+  
+ var joint = userChoice.join("")
+ return joint;
 }
+
+  
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-for (var i = 0; i <= passLength; i++ ){
-  var userPick = userChoice[Math.floor(Math.random()*userChoice.length)];
-  password.push(userPick)
   
+    
 }
-  
 
-}
+
+
 // Function to generate password with user input
 function generatePassword() {
-
+  var choices = getPasswordOptions()
+  
+  
+   
 
 
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
