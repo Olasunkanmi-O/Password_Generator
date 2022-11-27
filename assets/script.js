@@ -90,7 +90,7 @@ var upperCasedCharacters = [
 var passLength
 // Function to prompt user for password options
 function getPasswordOptions() {
-   passLength = parseInt(prompt("Enter your password length between 10 and 64"));
+  passLength = parseInt(prompt("Enter your password length between 10 and 64"));
   if (passLength < 10 || passLength > 64) {
     alert('Password must be between 10 and 64 characters');
     return null;
@@ -111,7 +111,7 @@ function getPasswordOptions() {
     alert('Please choose an option');
     return null;
   }
-  var userChoice = [];
+
   var optionsObj = {
     length: passLength,
     number: wantsNumber,
@@ -120,31 +120,19 @@ function getPasswordOptions() {
     special: wantsSpecial,
   };
 
-  if (optionsObj.number) {
-    userChoice.push(numericCharacters);
-  }
-  if(optionsObj.upper) {
-    userChoice.push(upperCasedCharacters)
-  }
-  if(optionsObj.lower) {
-    userChoice.push(lowerCasedCharacters)
-  }
-  if(optionsObj.special) {
-    userChoice.push(specialCharacters)
-  }
-  
-  
- var joint = userChoice.join("")
- return joint;
+  return optionsObj
 }
 
-  
+
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  
-    
+
+  var myRandom = Math.floor(Math.random() * arr.length);
+  var randomElement = arr[myRandom]
+
+  return randomElement;
 }
 
 
@@ -152,9 +140,43 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   var choices = getPasswordOptions()
+
+
+
+
+  var userChoice = [];
+  var possibleUserChoice = [];
+  var passwordResult = []
+
   
-  
-   
+
+  if (choices.number) {
+    possibleUserChoice = possibleUserChoice.concat(numericCharacters)
+    userChoice.push(getRandom(numericCharacters));
+  }
+  if (choices.upper) {
+    possibleUserChoice = possibleUserChoice.concat(upperCasedCharacters)
+    userChoice.push(getRandom(upperCasedCharacters))
+  }
+  if (choices.lower) {
+    possibleUserChoice = possibleUserChoice.concat(lowerCasedCharacters)
+    userChoice.push(getRandom(lowerCasedCharacters))
+  }
+  if (choices.special) {
+    possibleUserChoice = possibleUserChoice.concat(specialCharacters)
+    userChoice.push(getRandom(specialCharacters))
+  }
+
+  for (var i = 0; i < choices.length; i++) {
+    var userCh = getRandom(possibleUserChoice)
+    passwordResult.push(userCh)
+
+  }
+
+  var joint = passwordResult.join("")
+
+
+  return joint;
 
 
 }
